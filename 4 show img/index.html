@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="image">
+            <img src="./img/anh1.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/anh3.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/anh4.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/ks3.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/ks4.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/ks5.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/ks6.jpg" alt="anh2" srcset="">
+        </div>
+        <div class="image">
+            <img src="./img/anh5.jpg" alt="anh2" srcset="">
+        </div>
+    </div>
+
+    <div class="gallery">
+        <svg class="close" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" width="35px" height="35px" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        <div class="control prew">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="35px" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+        </div>
+        <div class="gallery__inner">
+           <img src="./img/anh1.jpg" alt="">
+        </div>
+        <div class="control right">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="35px" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+        </div>
+          
+    </div>
+    <script>
+        var images = document.querySelectorAll('.image img');
+        var prew = document.querySelector('.prew');
+        var next = document.querySelector('.right');
+        var del = document.querySelector('.close');
+        var galleryImg = document.querySelector('.gallery__inner img')
+        var gallery = document.querySelector('.gallery');
+        count = 0;
+        function galleryShow(){
+            if(count == 0){
+                prew.classList.add('none');
+            }
+            if(count == 7){
+                next.classList.add('none');
+            }
+            else if(count > 0){
+                prew.classList.remove('none');
+            }
+            else if(count < 7){
+                next.classList.remove('none');
+            }
+            galleryImg.src = images[count].src;
+            gallery.classList.add('show');
+        }
+        images.forEach((item , index) => {
+            
+            item.onclick = () => {
+                count = index;
+                galleryShow();                
+            }
+
+        })
+        del.onclick = () =>{
+            gallery.classList.remove('show');
+        }
+        document.onkeydown = (e) =>{
+            if(e.keyCode ==27)
+                gallery.classList.remove('show');
+
+        }
+        prew.addEventListener('click', () =>{
+            if(count > 0) {
+                count -- ;
+                galleryShow(); 
+            }
+        })
+        next.addEventListener('click', () =>{
+            if(count > 0) {
+                count ++ ;
+                galleryShow(); 
+            }
+        })
+        
+    </script>
+</body>
+</html>

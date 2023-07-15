@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;1,400&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins';
+    height: 100vh;
+    background-color: #17a2b8;
+    color:white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.box{
+    max-width: 100%;
+}
+.alert{
+    font-size: 40px;
+    background-color: white;
+    color: #17a2b8;
+    border-radius:12px;
+    padding: 10px 40px;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    max-width: 100;
+
+}
+.result{
+    height: 250px;
+    width: 250px;
+    border: 7px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    font-weight: 600;
+    margin-bottom : 60px;
+    margin-right:auto;
+    margin-left:auto;
+    max-width: 100%;
+    position: relative;
+    right:12px;
+}
+.hide{
+    display: none;
+}
+.detail{
+    display: flex;
+    justify-content: space-between;
+    width:1200px;
+    max-width: 100%;
+    margin:0 -10px;
+    
+}
+.card{
+    background-color: white;
+    border-radius: 10px;
+    width: 25%;
+    margin: 0 10px;
+    /* max-width: 100%; */
+    
+}
+.card p{
+    padding:10px;
+    text-align: center;
+    color:black;
+    font-size: 20px;
+    max-width: 100%;
+}
+.card p:first-child{
+    background-color:#78c0c9;
+    color:white;
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h1 class="title">Search Tags</h1>
+        <div class="content">
+            <!-- <li>
+                ABS
+                <svg width="20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </li>
+            <li>
+                ABS
+                <svg width="20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </li> -->
+            <input type="text" placeholder="Type and enter">
+        </div>
+        <button class="remove-all">Remove All</button>
+    </div>
+</body>
+<script>
+    var content = document.querySelector('.content');
+    var input  = document.querySelector('.content input');
+    var button = document.querySelector('button');
+
+    var tags = []; 
+ 
+    function createTags(){
+        content.innerHTML = '';
+        
+        tags.forEach((tag,index) =>{
+            console.log(tag);
+            content.innerHTML += 
+            ` 
+                <li>
+                    ${tag}
+                    <svg onclick="removeTag(${index})" width="20px"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </li>
+            `
+        });
+        content.appendChild(input);
+        input.focus();
+    }
+    createTags();
+    input.addEventListener('keydown',(e) =>{
+        if(e.key == 'Enter'){
+            if(tags.indexOf(input.value) > 0){
+                input.value.trim(); 
+                tags.push(input.value.trim());
+                input.value = "";
+                createTags();
+                
+            }
+        }
+    })
+    function removeTag(index){
+        tags.splice(index,1);
+        createTags();
+    }   
+    button.onclick = ()=>{
+        tags = [];
+        createTags()
+    }
+</script>
+</html>

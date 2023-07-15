@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <button class="open-Modal" >Open Modal</button >
+    <div class="modal">
+        <div class="modal__inner">
+            <div class="modal__header">
+                <p>Welcome to Nodemy</p>
+                <svg class="svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </div>
+            <div class="modal__body">
+                <h4>Modal</h4>
+                <p>Đây là phần của body Modal</p>
+            </div>
+            <div class="modal__footer">
+                <button class="close-Modal">Close</button>
+            </div>
+        </div>
+    </div> 
+    <script>
+        var btnOpen = document.querySelector('.open-Modal');
+        var modal = document.querySelector('.modal');
+        var iconClose = document.querySelector('.svg');
+        
+        var btnClose = document.querySelector('.modal__footer button');
+        btnOpen.onclick = () =>{
+            modal.classList.toggle('hide');
+        }
+        btnClose.onclick = () =>{
+            modal.classList.remove('hide');
+        }
+        iconClose.onclick = () =>{
+            modal.classList.remove('hide');
+            
+        }
+        
+    </script>
+</body>
+</html>
